@@ -302,7 +302,7 @@ func buildStartCommand(options Options, args []string) string {
 	if javaHome == "" {
 		javaHome = "java"
 	} else {
-		javaHome = javaHome + "/java"
+		javaHome = javaHome + "/bin/java"
 	}
 	return fmt.Sprintf("%s -server %s %s -classpath %s %s com.alibaba.datax.core.Engine -mode %s -jobid %s -job %s",
 		javaHome,
