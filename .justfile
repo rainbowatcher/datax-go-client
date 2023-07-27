@@ -12,14 +12,14 @@ fmt:
     go fmt
 
 build:
-    go build -o ./out/{{exe_name}} main.go
+    go build -o ./dist/{{exe_name}} main.go
     just build-windows
 
 start: build
-    ./out/{{exe_name}}
+    ./dist/{{exe_name}}
 
 test:
     go test
 
 build-windows:
-    GOOS=windows GOARCH=amd64 go build -o ./out/{{exe_name}}.exe main.go
+    GOOS=windows GOARCH=amd64 go build -o ./dist/{{exe_name}}.exe main.go
