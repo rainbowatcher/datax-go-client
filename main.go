@@ -330,12 +330,13 @@ func main() {
 		generateJobConfigTemplate(options.reader, options.writer)
 		os.Exit(RET_STATE["OK"])
 	}
-	// fmt.Println(os.Args[1:])
-	if len(os.Args[1:]) != 1 {
+	// fmt.Println(os.Args[len(os.Args)-1:])
+	job := os.Args[len(os.Args)-1:]
+	if len(job) != 1 {
 		flag.Usage()
 		os.Exit(RET_STATE["FAIL"])
 	}
-	startCommand := buildStartCommand(options, os.Args[1:])
+	startCommand := buildStartCommand(options, job)
 	var cmd *exec.Cmd
 	if isWindows() {
 		cmd = exec.Command("cmd", "/C", startCommand)
