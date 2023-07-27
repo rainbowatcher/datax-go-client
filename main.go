@@ -295,7 +295,7 @@ func buildStartCommand(options Options, args []string) string {
 
 	err := godotenv.Load()
 	if err != nil {
-		panic(err)
+		fmt.Println(err.Error())
 	}
 
 	javaHome := os.Getenv("JAVA_HOME")
